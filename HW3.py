@@ -12,15 +12,13 @@ print('id lst_d:', id(lst_d))
 print('id dict_e:', id(dict_e))
 
 # 2
-lst_d = [1, 2, 3]
 lst_d.append(4)
 lst_d.append(5)
-print(lst_d)
+print(id(lst_d))
 # 2.1
-lst_d = [1, 2, 3]
 lst_d.insert(3, (4))
 lst_d.insert(4, (5))
-print(lst_d)
+print(id(lst_d))
 
 # 3
 print(type(int_a))
@@ -78,10 +76,10 @@ print(list_comprehension)
 list_comprehension = []
 for num in range(10):
     if not 2 == 0:
-        list_comprehension.append(num * 10)
-        print(list_comprehension)
-    else:
         list_comprehension.append(num // 2)
+    else:
+        list_comprehension.append(num * 10)
+print(list_comprehension)
 
 # 14
 d = {}
@@ -91,8 +89,8 @@ for num in range(1, 11):
     else:
         d[num] = num // 0.5
         print(d)
-        d = {num: num ** 2 if num % 2 == 1 else num // 0.5 for num in range(1, 11)}
-        print(d)
+d = {num: num ** 2 if num % 2 == 1 else num // 0.5 for num in range(1, 11)}
+print(d)
 
 # 15
 d = {}
@@ -160,14 +158,9 @@ print(lst_multiply)
 
 #23
 list_A = [2, 3, 4]
-for i in list_A:
-    lst_another = list(map(lambda x: x * i, lst_to_sort))
-    print(lst_another)
-
 list_B = [5, 6, 7]
-for j in list_B:
-    lst_B_another = list(map(lambda x: x * j, lst_to_sort))
-    print(lst_B_another)
+list_another = list(map(lambda x, y: x*y, list_A, list_B))
+print(list_another)
 
 #24
 lst = list(filter(lambda num: num % 2 == 1, lst_to_sort))
